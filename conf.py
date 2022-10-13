@@ -1,3 +1,4 @@
-project = "UMN Kernel Development"
+project = "UMN Kernel Dev"
 source_suffix = ".rst"
-master_doc = "index"
+root_doc = "index"
+default_domain = "c"
