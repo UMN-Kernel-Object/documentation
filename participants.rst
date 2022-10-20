@@ -38,6 +38,10 @@ lazy I am feeling.
 **Cas Hermann**
 Computer Science major with an interest in embedded systems and data communications.
 
+**Brendan Gee**
+
+A computer science major who doesn't have a lot of experience with Linux but is excited to learn more. My favorite type of music is EDM. Check out Porter Robinson.
+
 Advisors
 --------
 
