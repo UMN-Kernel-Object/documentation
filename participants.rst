@@ -35,6 +35,9 @@ computing, high preformance computing, and operating systems. My favorite
 programming languages bounce between C/C++ and Python depending on how
 lazy I am feeling.
 
+**Cas Hermann**
+Computer Science major with an interest in embedded systems and data communications.
+
 Advisors
 --------
 
