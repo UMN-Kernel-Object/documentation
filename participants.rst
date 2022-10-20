@@ -11,6 +11,12 @@ machine architecture. I started my Linux journey with Linux Mint Qiana in 2014.
 I am a FreeBSD user and contributor, my favorite programming language is C, and
 I happen to be a Hawaiian pizza fan.
 
+
+**Evan Voogd**
+Computer Science Major at UMN with interest in operating systems. I started my
+Linux journey with Ubuntu running in WSL back in the summer before my freshman
+year. I use Vim and am neutral on the issue of pineapple pizza.
+
 Advisors
 --------
 
