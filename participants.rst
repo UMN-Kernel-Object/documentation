@@ -27,6 +27,14 @@ I'm a junior CS major here at UMN. I am also the sysadmin for ACM UMN, and a
 DJ for Radio K. My Linux journey started with some version of Ubuntu (14.04?).
 My favouite cartoon is Gravity Falls.
 
+**Alec Lorimer**
+
+I am a graduate student that came back to school after working as a firmware
+engineer for two years after undergrad. I have interests in distributed
+computing, high preformance computing, and operating systems. My favorite
+programming languages bounce between C/C++ and Python depending on how
+lazy I am feeling.
+
 Advisors
 --------
 
