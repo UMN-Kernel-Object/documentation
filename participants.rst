@@ -17,6 +17,11 @@ Computer Science Major at UMN with interest in operating systems. I started my
 Linux journey with Ubuntu running in WSL back in the summer before my freshman
 year. I use Vim and am neutral on the issue of pineapple pizza.
 
+**Khan Winter**
+
+I was a beekeeper for 3 years! In that time I wound up with 0 jars of honey, 1 happy bear,
+and too many bee stings to count.
+
 Advisors
 --------
 
