@@ -4,6 +4,13 @@ Group Participants
 Students
 --------
 
+**Jake Freeland**
+
+Computer Science Major at UMN with interest in operating systems and low-level
+machine architecture. I started my Linux journey with Linux Mint Qiana in 2014.
+I am a FreeBSD user and contributor, my favorite programming language is C, and
+I happen to be a Hawaiian pizza fan.
+
 Advisors
 --------
 
