@@ -42,6 +42,12 @@ Computer Science major with an interest in embedded systems and data communicati
 
 A computer science major who doesn't have a lot of experience with Linux but is excited to learn more. My favorite type of music is EDM. Check out Porter Robinson.
 
+**Minrui Tian**
+
+I am a junior majored in Computer Science. I am interested in operating systems, distributed systems and cloud computing.
+I was exposed to Linux kernel when I taught myself a MIT operating system course 6.828, which has labs to develop a Unix xv6 operating system on Linux Ubuntu.
+I am currently working on a project from a distribued system course -- MIT 6.824 using Go. My favorite languages are C/C++ and Go.
+
 Advisors
 --------
 
