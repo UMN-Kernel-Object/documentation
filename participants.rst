@@ -3,6 +3,11 @@ Group Participants
 
 Students
 --------
+**Nathan Anye**
+
+I am a student at UMN, interested in machine learning: mainly computer vision
+and natural language processing. My Linux journey started with Linux Mint
+20.04. My favorite programming language is Python. I am a fellow Hawaiian pizza enjoyer.
 
 **Jake Freeland**
 
