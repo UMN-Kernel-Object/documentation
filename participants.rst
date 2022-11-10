@@ -67,6 +67,13 @@ Currently a junior in the Computer Science program. Interested in lots of
  fact about me is I will always be the pink-est person in the room.
 
 
+**Joel Kuehne**
+
+I am currently a freshman pursuing Computer Engineering. My Linux journey started when I
+repurposed my old laptop into a minecraft server running Ubuntu server. C++ all the way.
+Delicious juicy pineapple does belong on pizza.
+
+
 Advisors
 --------
 
