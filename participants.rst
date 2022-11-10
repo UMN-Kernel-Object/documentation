@@ -60,6 +60,13 @@ and distributed computing...maybe. My favorite programming
 language bounces between C, C++, and Rust. (and Javascript but shhh I didn't admit that)
 I also really like kiwis :)
 
+**Kirsten Ericson**
+Currently a junior in the Computer Science program. Interested in lots of
+ different topics, but am most interested in front end development. I am excited
+ to be interning with Target this summer for software development, and a fun
+ fact about me is I will always be the pink-est person in the room.
+
+
 Advisors
 --------
 
