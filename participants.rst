@@ -53,6 +53,13 @@ I am a junior majored in Computer Science. I am interested in operating systems,
 I was exposed to Linux kernel when I taught myself a MIT operating system course 6.828, which has labs to develop a Unix xv6 operating system on Linux Ubuntu.
 I am currently working on a project from a distribued system course -- MIT 6.824 using Go. My favorite languages are C/C++ and Go.
 
+**Noah Hendrickson**
+A junior in computer science interested in Graphics, Machine Learning,
+and the intersection of the two, as well as dabbling a bit in Operating systems
+and distributed computing...maybe. My favorite programming
+language bounces between C, C++, and Rust. (and Javascript but shhh I didn't admit that)
+I also really like kiwis :)
+
 Advisors
 --------
 
