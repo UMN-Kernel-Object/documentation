@@ -74,6 +74,11 @@ repurposed my old laptop into a minecraft server running Ubuntu server. C++ all 
 Delicious juicy pineapple does belong on pizza.
 
 
+**Angie Chen**
+
+Computer science major, [attempting an] art minor. I don't have much experience with Linux.
+I am fond of birds.
+
 Advisors
 --------
 
