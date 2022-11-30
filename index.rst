@@ -7,3 +7,4 @@ Welcome to the documentation site for UMN's Kernel Study Group.
     :maxdepth: 1
 
     participants
+    buliding_the_kernel
