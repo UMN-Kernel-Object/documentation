@@ -95,6 +95,9 @@ programming languages are OCaml and Python.
 I am Computer Science major. I love movies and tv shows.
 
 
+**Margaret Degen**
+I am junior majoring in Computer Science.My favorite languages are Python,C++, and Javascript.
+
 Advisors
 --------
 
