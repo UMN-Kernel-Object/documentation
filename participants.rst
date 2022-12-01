@@ -80,6 +80,13 @@ Delicious juicy pineapple does belong on pizza.
 Computer science major, [attempting an] art minor. I don't have much experience with Linux.
 I am fond of birds.
 
+**William Lin**
+
+Hello, I am a sophomore currently majoring in Computer Science.
+I am interesting in a wide range of things in CS, but am not sure what to settle in.
+I haven't worked with the Linux kernel before but I have messed with a few linux distros, mainly Arch and Ubuntu.
+I don't really have favorite language, but I usually prototype in Python and look to finalize projects with Java.
+
 Advisors
 --------
 
