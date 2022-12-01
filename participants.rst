@@ -28,6 +28,7 @@ I was a beekeeper for 3 years! In that time I wound up with 0 jars of honey, 1 h
 and too many bee stings to count.
 
 **Shaun Loo**
+
 I'm a junior CS major here at UMN. I am also the sysadmin for ACM UMN, and a
 DJ for Radio K. My Linux journey started with some version of Ubuntu (14.04?).
 My favouite cartoon is Gravity Falls.
