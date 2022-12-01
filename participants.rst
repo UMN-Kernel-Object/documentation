@@ -87,6 +87,10 @@ I am interesting in a wide range of things in CS, but am not sure what to settle
 I haven't worked with the Linux kernel before but I have messed with a few linux distros, mainly Arch and Ubuntu.
 I don't really have favorite language, but I usually prototype in Python and look to finalize projects with Java.
 
+**Jada Lilleboe**
+Computer science major interested in learning more about the Linux kernel! My favorite
+programming languages are OCaml and Python.
+
 Advisors
 --------
 
