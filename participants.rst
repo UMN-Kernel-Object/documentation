@@ -91,6 +91,10 @@ I don't really have favorite language, but I usually prototype in Python and loo
 Computer science major interested in learning more about the Linux kernel! My favorite
 programming languages are OCaml and Python.
 
+**[Hanan Abdirahman]**
+I am Computer Science major. I love movies and tv shows.
+
+
 Advisors
 --------
 
