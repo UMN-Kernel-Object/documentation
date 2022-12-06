@@ -98,6 +98,11 @@ I am Computer Science major. I love movies and tv shows.
 **Margaret Degen**
 I am junior majoring in Computer Science.My favorite languages are Python,C++, and Javascript.
 
+**Sam Highbargin**
+I am a first year Master's student. My primary field of research is the various species of wildcats
+and the cuteness of their kittens. I've been a TA for almost three years now, so if you've had a
+class with a bunch of cat pictures on the lab slides, it was probably me. My favorite language is C.
+
 Advisors
 --------
 
