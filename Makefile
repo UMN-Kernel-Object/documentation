@@ -1,5 +1,6 @@
-html: index.rst participants.rst
-	sphinx-build . html
+
+html:	rst/*.rst
+	sphinx-build rst html
 
 clean:
 	rm -rf html
