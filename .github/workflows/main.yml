@@ -42,10 +42,10 @@ jobs:
       # Clone existing github pages repo, move in new files, and push
       - name: Push New Docs
         run: |
-          git clone git@github.com:UMN-Kernel-Study-Group/UMN-Kernel-Study-Group.github.io.git
-          rm -rf UMN-Kernel-Study-Group.github.io/docs
-          cp -r output UMN-Kernel-Study-Group.github.io/docs
-          cd UMN-Kernel-Study-Group.github.io
+          git clone git@github.com:UMN-Kernel-Object/UMN-Kernel-Object.github.io.git
+          rm -rf UMN-Kernel-Object.github.io/docs
+          cp -r output UMN-Kernel-Object.github.io/docs
+          cd UMN-Kernel-Object.github.io
           rm -rf docs/.buildinfo docs/_sources docs/.doctrees
           git add docs
           git commit -m "Documentation Update `date`"
