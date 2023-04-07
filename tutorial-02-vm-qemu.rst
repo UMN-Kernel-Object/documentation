@@ -32,6 +32,7 @@ Firstly, copy this block of code into a new folder:
 :code:`boot.sh`:
 
 .. code:: sh
+  
   #!/bin/bash
 
   declare -i cpu=2
@@ -49,6 +50,7 @@ Firstly, copy this block of code into a new folder:
 :code:`boot-kernel.sh`:
 
 .. code-block:: sh
+
   #!/bin/bash
 
   declare -i cpu=2
@@ -80,6 +82,7 @@ cloud images provided by Ubuntu for convenience. Download the Ubuntu
 In the folder where you copied the shell scripts to:
 
 .. code-block:: sh
+
   wget https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img
   cp jammy-server-cloudimg-amd64.img hdd.img
   qemu-img resize hdd.img +50G
@@ -95,12 +98,14 @@ that define our VM initialization parameters.
 :code:`metadata.yml`: 
 
 .. code-block:: yaml
+
   instance-id: iid-local01
   local-hostname: cloudimg
 
 :code-block:`user-data.yml`:
 
 .. code-block:: yaml
+
   #cloud-config
 
   users:
@@ -136,7 +141,8 @@ Booting a kernel image
 
 In the Linux kernel repository where you built the kernel,
 
-.. code:: sh
+.. code-block:: sh
+
   INSTALL_PATH=/some/location/ make install
 
 This will save the kernel in the speficied location. :code:`WORKDIR/kernels`,
