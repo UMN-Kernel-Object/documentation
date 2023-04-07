@@ -32,7 +32,7 @@ Firstly, copy this block of code into a new folder:
 :code:`boot.sh`:
 
 .. code:: sh
-  
+
   #!/bin/bash
 
   declare -i cpu=2
@@ -99,8 +99,8 @@ that define our VM initialization parameters.
 
 .. code-block:: yaml
 
-  instance-id: iid-local01
-  local-hostname: cloudimg
+  instance-id: maize-vm
+  local-hostname: maize-vm
 
 :code-block:`user-data.yml`:
 
