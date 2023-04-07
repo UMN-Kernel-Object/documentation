@@ -48,7 +48,7 @@ Firstly, copy this block of code into a new folder:
 
 :code:`boot-kernel.sh`:
 
-.. code:: sh
+.. code-block:: sh
   #!/bin/bash
 
   declare -i cpu=2
@@ -79,7 +79,7 @@ cloud images provided by Ubuntu for convenience. Download the Ubuntu
 
 In the folder where you copied the shell scripts to:
 
-.. code:: sh
+.. code-block:: sh
   wget https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img
   cp jammy-server-cloudimg-amd64.img hdd.img
   qemu-img resize hdd.img +50G
@@ -94,13 +94,13 @@ that define our VM initialization parameters.
 
 :code:`metadata.yml`: 
 
-.. code:: yaml
+.. code-block:: yaml
   instance-id: iid-local01
   local-hostname: cloudimg
 
-:code:`user-data.yml`:
+:code-block:`user-data.yml`:
 
-.. code:: yaml
+.. code-block:: yaml
   #cloud-config
 
   users:
@@ -116,7 +116,8 @@ that define our VM initialization parameters.
 Now, we generate the :code:`seed.img` file that contains our parameters. In
 the same working folder:
 
-.. code:: sh
+.. code-block:: sh
+
   cloud-localds seed.img user-data.yaml metadata.yaml
 
 Now, try booting by invoking :code:`./boot.sh`! You'll see a flurry of
@@ -124,7 +125,8 @@ text go by, and you'll find a login prompt! You're in the VM!
 
 To exit the VM, :code:`Ctrl+A` then :code:`X` and you will see
 
-.. code::
+.. code-block::
+
   QEMU: Terminated
 
 This ends the virtual machine
