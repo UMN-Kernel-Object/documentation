@@ -37,7 +37,7 @@ support.
 
 Remember, to make a shallow clone of the Linux kernel source:
 
-..code-block:: sh
+.. code-block:: sh
 
    git clone --depth=1 git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 
@@ -48,7 +48,7 @@ Setting up the Rust toolchain for kernel development
 
 Firstly, we check if Rust is even available
 
-..code-block:: sh
+.. code-block:: sh
 
    make defconfig
    make LLVM=1 rustavailable
@@ -60,7 +60,7 @@ configuration.
 For example, if you just installed :code:`rustup`, you might see an error
 message like this:
 
-..code-block:: sh
+.. code-block:: sh
 
    ***
    *** Rust compiler 'rustc' is too new. This may or may not work.
@@ -79,13 +79,13 @@ Rust compiler is too new. We fix this by telling rustup to override the
 Rust compiler with the older version when you're in the Linux kernel
 source folder. 
 
-..code-block:: sh
+.. code-block:: sh
 
    rustup override set $(scripts/min-tool-version.sh rustc)
 
 Hopefully, at the end of this, you'll get this output:
 
-..code-block:: sh
+.. code-block:: sh
 
    Rust is available!
 
@@ -99,7 +99,7 @@ these files are, do review the earlier C hello world module tutorial.
 
 :code:`sample/rust/Kconfig`
 
-..code-block::
+.. code-block::
    
    ...
 
@@ -117,7 +117,7 @@ these files are, do review the earlier C hello world module tutorial.
 
 :code:`sample/rust/Makefile`
 
-..code-block::
+.. code-block::
 
    ...
    obj-$(CONFIG_SAMPLE_RUST_VDEV) 			+= rust_hello.o
@@ -125,7 +125,7 @@ these files are, do review the earlier C hello world module tutorial.
 
 :code:`sample/rust/hello.rs` (create this!)
 
-..code-block:: rust
+.. code-block:: rust
 
    // SPDX-License-Identifier: GPL-2.0
 
