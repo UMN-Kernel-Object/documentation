@@ -1,5 +1,6 @@
 default_domain = "c"
-html_theme = "alabaster"
+extensions = [ "sphinx_rtd_theme" ]
+html_theme = "sphinx_rtd_theme"
 project = "UMN Kernel Dev"
 root_doc = "index"
 source_suffix = ".rst"

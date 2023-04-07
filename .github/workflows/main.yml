@@ -20,9 +20,9 @@ jobs:
 
       - name: Generate HTML
         run: |
-          docker pull sphinxdoc/sphinx
           cd $GITHUB_WORKSPACE
-          docker run -v `pwd`:/docs sphinxdoc/sphinx sphinx-build -b html . output
+          docker build -t sphinx_theme .
+          docker run -v `pwd`:/docs sphinx_theme sphinx-build -b html . output
 
       # Install git, configure user details, and set up SSH key
       # Much is borrowed from https://tabris.com/using-deploy-keys-on-github-actions
