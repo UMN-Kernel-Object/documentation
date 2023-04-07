@@ -30,6 +30,7 @@ Setting up
 Firstly, copy this block of code into a new folder:
 
 :code:`boot.sh`:
+
 .. code:: sh
   #!/bin/bash
 
@@ -46,6 +47,7 @@ Firstly, copy this block of code into a new folder:
   -nographic
 
 :code:`boot-kernel.sh`:
+
 .. code:: sh
   #!/bin/bash
 
@@ -91,11 +93,13 @@ Now, we have to configure the cloud image. We do so with two files
 that define our VM initialization parameters.
 
 :code:`metadata.yml`: 
+
 .. code:: yaml
   instance-id: iid-local01
   local-hostname: cloudimg
 
 :code:`user-data.yml`:
+
 .. code:: yaml
   #cloud-config
 
