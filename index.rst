@@ -1,9 +1,14 @@
 UMN Kernel Dev Documentation
 ============================
 
-Welcome to the documentation site for UMN's Kernel Study Group.
+Welcome to the documentation site for the UMN Kernel Object group.
 
 .. toctree::
-    :maxdepth: 1
+   :caption: Table of Contents
+   :glob:
 
-    participants
+   UKO/*
+   maize/*
+   rust/*
+   sched/*
+   virtmem/*
