@@ -1,4 +1,5 @@
-project = "UMN Kernel Dev"
-source_suffix = ".rst"
-root_doc = "index"
 default_domain = "c"
+html_theme = "alabaster"
+project = "UMN Kernel Dev"
+root_doc = "index"
+source_suffix = ".rst"
