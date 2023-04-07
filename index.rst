@@ -5,7 +5,7 @@ Welcome to the documentation site for the UMN Kernel Object group.
 
 .. toctree::
    :caption: Table of Contents
-   :maxdepth: 1
+   :titlesonly:
    :glob:
 
    UKO/*
