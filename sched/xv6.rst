@@ -17,7 +17,7 @@ Accessing xv6
 -------------
 
    NOTE: It is recommended you follow these steps on
-   `Maize </maize/setup.rst>`_. Development in other environments is not
+   `Maize </docs/maize/setup.rst>`_. Development in other environments is not
    supported.
 
 You will probably want to clone the xv6 repository so you can make your own
