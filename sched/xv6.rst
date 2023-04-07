@@ -11,13 +11,13 @@ small number compared to modern operating systems. The code is also simple
 making it a great candidate to analyze and improve upon.
 
 The scheduling subgroup has made plans to profile and improve the xv6
-scheduler. See documentation on `xv6 scheduling <sched.rst>`_ for details.
+scheduler. See documentation on `xv6 scheduling <sched>`_ for details.
 
 Accessing xv6
 -------------
 
    NOTE: It is recommended you follow these steps on
-   `Maize </docs/maize/setup.rst>`_. Development in other environments is not
+   `Maize </docs/maize/setup>`_. Development in other environments is not
    supported.
 
 You will probably want to clone the xv6 repository so you can make your own
