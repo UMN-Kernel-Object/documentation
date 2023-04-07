@@ -181,3 +181,7 @@ Hopefully, this compiles without issues. The final step is to install
 the kernel in your VM. Refer to the previous tutorial for instructions
 on that. 
 
+When booting into the kernel, you should see a cute little message
+fly by if you're quick enough. If you're not, however, type
+:code:`sudo journalctl -b` and you should be able to scroll thru
+it and find it!
