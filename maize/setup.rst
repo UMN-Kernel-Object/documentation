@@ -28,9 +28,9 @@ using::
 You will be prompted to enter a password. Use the password that was given to
 you during Maize account creation, not your regular UMN password.
 
-| NOTE: You must be connected to the University's `eduroam` network to access
-| Maize. This requirement may be circumvented using the
-| `UMN VPN <https://it.umn.edu/services-technologies/virtual-private-network-vpn>`_
+   NOTE: You must be connected to the University's `eduroam` network to access
+   Maize. This requirement may be circumvented using the
+   `UMN VPN <https://it.umn.edu/services-technologies/virtual-private-network-vpn>`_
 
 It is recommended that you change your Maize password upon successful login
 using::
