@@ -120,7 +120,7 @@ these files are, do review the earlier C hello world module tutorial.
 .. code-block::
 
    ...
-   obj-$(CONFIG_SAMPLE_RUST_VDEV) 			+= rust_hello.o
+   obj-$(CONFIG_SAMPLE_RUST_HELLO) 			+= rust_hello.o
    ...
 
 :code:`sample/rust/hello.rs` (create this!)
