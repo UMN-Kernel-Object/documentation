@@ -1,5 +1,5 @@
-UMN Kernel Dev Documentation
-============================
+UMN Kernel Object 
+===================
 
 Welcome to the documentation site for the UMN Kernel Object group.
 
