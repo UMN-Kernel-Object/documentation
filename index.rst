@@ -10,4 +10,6 @@ Welcome to the documentation site for the UMN Kernel Object group.
 
    UKO/*
    maize/*
-   subgroups/*
+   rust/*
+   sched/*
+   virtmem/*
