@@ -24,12 +24,12 @@ You will probably want to clone the xv6 repository so you can make your own
 changes. MIT hosts the source code on their GitHub. Clone that repository
 using::
 
-   git clone https://github.com/mit-pdos/xv6-public.git
+   git clone https://github.com/mit-pdos/xv6-riscv.git
 
 It is suggested that you add the UKO remote to your repository so you can keep
 up with the group's changes::
 
-    git remote add UKO https://github.com/UMN-Kernel-Object/xv6-public.git
+   git remote add UKO https://github.com/UMN-Kernel-Object/xv6-riscv.git
 
 Update the remote using::
 
@@ -44,5 +44,6 @@ using::
 
    git push UKO sched
 
-Remember to adhere to standard `kernel coding practices <>`_ before sending
-patches.
+Remember to adhere to standard
+`kernel coding style and practices <https://www.kernel.org/doc/html/v4.10/process/coding-style.html>`_
+before sending patches.
