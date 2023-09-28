@@ -12,10 +12,9 @@ tools required to participate in scheduler development.
 Request a Maize Account
 -----------------------
 
-You must have an existing user account to access Maize. Contact Alex Elder
-`elder@umn.edu <elder@umn.edu>`_ or Jack Kolb
-`jhkolb@umn.edu <jhkolb@umn.edu>`_ to create a Maize user with your student
-x500.
+You must have an existing user account to access Maize. Contact
+`kernel@umn.edu <kernel@umn.edu>`_ with your student x500 to get access to
+your own user account.
 
 Accessing Maize
 ---------------
