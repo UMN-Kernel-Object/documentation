@@ -108,7 +108,11 @@ Advisors
 
 **Alex Elder**
 
-**Chris Kauffman**
+I am a Linux kernel contributor and maintainer. I currently work at Linaro,
+where I am focused on Linux support for ARM devices. I will judge you for
+courageously admitting that you like pineapple on pizza, but I will eat
+Hawaiian pizza if I think no one is watching.
+
 
 **Jack Kolb**
 
@@ -116,3 +120,14 @@ I mainly teach undergraduate CS courses on architecture and operating systems.
 My Linux journey started with Ubuntu 8.04. My favorite programming language
 keyword is `with`, from Python, and my favorite type of pizza is the
 ever-controversial Hawaiian.
+
+Advisors Emeriti
+----------------
+
+**Chris Kauffman**
+
+After serving as a teaching professor at the University of Minnesota, I have
+moved to the University of Maryland. I am a long-time Linux enthusiast, and for
+some strange reason I actually enjoy writing large Bash scripts. My favorite
+variety of pizza is BBQ chicken, also a controversial choice. I use Arch Linux,
+btw.
