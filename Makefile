@@ -1,4 +1,4 @@
-html: index.rst participants.rst
+html: index.rst
 	sphinx-build . html
 
 clean:
