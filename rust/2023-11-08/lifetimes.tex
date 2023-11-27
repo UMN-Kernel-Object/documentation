@@ -1,0 +1,141 @@
+\documentclass[aspectratio=169, notes]{beamer}
+% \setbeamertemplate{note page}[plain]
+% \setbeameroption{show notes on second screen=right}
+\usepackage{amsfonts}
+\usepackage{pifont}
+\usepackage{newpxmath}
+\usepackage{newpxtext}
+
+\definecolor{c1}{RGB}{ 86, 180, 233}
+\definecolor{c2}{RGB}{  0, 158, 115}
+\definecolor{c3}{RGB}{230, 159,   0}
+\definecolor{c4}{RGB}{213,  94,   0}
+\definecolor{c5}{RGB}{204, 121, 167}
+\definecolor{c6}{RGB}{255, 170,  20}
+
+\newcommand{\todo}[1]{\note[item]{\textcolor{c4}{\textbf{TODO:}} #1}}
+
+\newcommand{\yes}{{\color{c2}\ding{51}}}
+\newcommand{\no}{{\color{c4}\ding{55}}}
+
+\title{Introduction to Lifetimes}
+\author{Nathan Ringo (\texttt{remexre})}
+\date{November 8, 2023}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Recap and outline}
+	\begin{itemize}
+		\item \texttt{search}
+		\begin{itemize}
+			\item "Imperative way"
+			\item "Functional way"
+		\end{itemize}
+		\item References and Lifetimes
+		\item Interior Mutability
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{\texttt{search}}
+	\begin{itemize}
+	\item<+-> Base: \url{https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=367a4490e732f842e45800ba60249795}
+	\vspace{0.3in}
+	\item<+-> \texttt{pub fn \href{https://doc.rust-lang.org/std/vec/struct.Vec.html\#method.retain}{\texttt{retain}}<F>(\&mut self, f: F)} \\
+		\quad\texttt{where F: FnMut(\&T) -> bool} \\
+		\url{https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=79cd0ae6e3dcc22c37242e6b0bf0bdff}
+	\vspace{0.3in}
+	\item<+-> Iterators and \texttt{filter}! \\
+		\url{https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=fd52e11181bfb94d7f685ef568b72a62}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{How do I access values?}
+	\begin{table}
+		\begin{tabular}{l|c|c|c|c}
+			Type                                                  \onslide<2->{ & Read}\onslide<3->{ & Write}\onslide<4->{ & Free}\onslide<5->{ & How many?} \\
+			\hline\hline
+			\texttt{\textcolor{c3}{\&}\textcolor{c1}{String}}     \onslide<2->{ & \yes}\onslide<3->{ & \no  }\onslide<4->{ & \no }\onslide<5->{ & $\infty$ (but no \textcolor{c3}{\&mut })} \\
+			\texttt{\textcolor{c3}{\&mut }\textcolor{c1}{String}} \onslide<2->{ & \yes}\onslide<3->{ & \yes }\onslide<4->{ & \no }\onslide<5->{ & 1} \\
+			\texttt{\textcolor{c1}{String}}                       \onslide<2->{ & \yes}\onslide<3->{ & \yes }\onslide<4->{ & \yes}\onslide<5->{ & ...}
+		\end{tabular}
+	\end{table}
+
+	\vspace{0.3in}
+
+	\onslide<2->{\texttt{\textcolor{c3}{\&}}: ``shared reference'' or ``immutable reference'' (slight misnomer)}
+		\begin{itemize}
+		\item<2-> ``kind of like C's \texttt{const*}'' but...
+		\end{itemize}
+
+	\onslide<3->{\texttt{\textcolor{c3}{\&mut}}: ``unique reference'' or ``mutable reference'' (slight misnomer)}
+		\begin{itemize}
+		\item<3-> ``kind of like C's \texttt{*}'' but...
+		\end{itemize}
+
+	\vspace{0.3in}
+
+	\onslide<2->{\texttt{pub fn len(\textcolor{c3}{\&self}) -> usize \{ ... \}}}
+
+	\onslide<3->{\texttt{pub fn push\_str(\textcolor{c3}{\&mut self}, string: \textcolor{c3}{\&}str) \{ ... \}}}
+
+	\onslide<4->{\texttt{pub fn into\_bytes(\textcolor{c3}{self}) -> Vec<u8> \{ ... \}}}
+\end{frame}
+
+\begin{frame}{References have lifetimes}
+	\begin{itemize}
+	\item \texttt{pub fn len(\textcolor{c3}{\&self}) -> usize} is implicitly \\
+	\vspace{0.1in}
+		\texttt{pub fn len<\textcolor{c2}{'a}>(\textcolor{c3}{\&\textcolor{c2}{'a} self}) -> usize}
+	\vspace{0.4in}
+	\item \texttt{pub fn push\_str(\textcolor{c3}{\&mut self}, s:\textcolor{c3}{\&}str)} is implicitly \\
+	\vspace{0.1in}
+		\texttt{pub fn push\_str<\textcolor{c2}{'a}>(\textcolor{c3}{\&\textcolor{c2}{'a} mut self}, s:\textcolor{c3}{\&}\textcolor{c2}{'a} str)}
+	\vspace{0.4in}
+	\item \texttt{fn f(\textcolor{c3}{\&mut self}, x:\textcolor{c3}{\&}T) -> \textcolor{c3}{\&}U} is implicitly \\
+	\vspace{0.1in}
+		\texttt{fn f<\textcolor{c2}{'a}>(\textcolor{c3}{\&\textcolor{c2}{'a} mut self}, x:\textcolor{c3}{\&}\textcolor{c2}{'a} T) -> \textcolor{c3}{\&}\textcolor{c2}{'a} U}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{What are lifetimes?}
+	\begin{itemize}
+		\item<+-> The range of the program where a reference is valid
+			\begin{itemize}
+				\item If you want to make a \textcolor{c3}{\&mut} for a value, all its \textcolor{c3}{\&}s must be dead
+				\item If you want to own a value, all its \textcolor{c3}{\&}s and \textcolor{c3}{\&mut}s must be dead
+			\end{itemize}
+		\vspace{0.2in}
+		\item<+-> Since you need to own something to free it, if you have a reference (that's alive) to it, it can't have been freed!
+			\begin{itemize}
+				\item No use-after-free bugs!
+				\item \url{https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=37e5d4df6251aac80838b2753b295337}
+			\end{itemize}
+		\vspace{0.2in}
+		\item<+-> If you have a reference to a value, nobody else can have a \textcolor{c3}{\&mut} to it. For \emph{most} types, this means nobody can mutate it out from under you!
+			\begin{itemize}
+				\item Counterexamples: \texttt{Mutex}, \texttt{AtomicU32}, \texttt{Cell}, ...
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Interior Mutability}
+	\begin{itemize}
+	\item Some types let you mutate them with only a \textcolor{c3}{\&}
+		\begin{itemize}
+		\item This is why \textcolor{c3}{\&mut} = ``mutable reference'' is a slight misnomer
+		\end{itemize}
+	\vspace{0.2in}
+	\item Simple example: \href{https://doc.rust-lang.org/std/cell/struct.Cell.html}{\texttt{Cell}}
+	\vspace{0.2in}
+	\item Example you'll use: \href{https://doc.rust-lang.org/std/sync/struct.Mutex.html}{\texttt{Mutex}}
+	\vspace{0.2in}
+	\item \emph{Not} bad, but ``don't do it unless you need to''
+		\begin{itemize}
+			\item You don't know ``nobody can mutate it out from under you''
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\end{document}
