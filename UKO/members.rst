@@ -42,6 +42,7 @@ programming languages bounce between C/C++ and Python depending on how
 lazy I am feeling.
 
 **Cas Hermann**
+
 Computer Science major with an interest in embedded systems and data communications.
 
 **Brendan Gee**
@@ -55,6 +56,7 @@ I was exposed to Linux kernel when I taught myself a MIT operating system course
 I am currently working on a project from a distribued system course -- MIT 6.824 using Go. My favorite languages are C/C++ and Go.
 
 **Noah Hendrickson**
+
 A junior in computer science interested in Graphics, Machine Learning,
 and the intersection of the two, as well as dabbling a bit in Operating systems
 and distributed computing...maybe. My favorite programming
@@ -62,11 +64,11 @@ language bounces between C, C++, and Rust. (and Javascript but shhh I didn't adm
 I also really like kiwis :)
 
 **Kirsten Ericson**
-Currently a junior in the Computer Science program. Interested in lots of
- different topics, but am most interested in front end development. I am excited
- to be interning with Target this summer for software development, and a fun
- fact about me is I will always be the pink-est person in the room.
 
+Currently a junior in the Computer Science program. Interested in lots of
+different topics, but am most interested in front end development. I am excited
+to be interning with Target this summer for software development, and a fun
+fact about me is I will always be the pink-est person in the room.
 
 **Joel Kuehne**
 
