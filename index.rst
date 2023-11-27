@@ -1,15 +1,17 @@
-UMN Kernel Object 
-===================
+####################
+  UMN Kernel Object
+####################
 
 Welcome to the documentation site for the UMN Kernel Object group.
 
-.. toctree::
-   :caption: Table of Contents
-   :titlesonly:
-   :glob:
+General
+=======
+  .. toctree::
+    :titlesonly:
+    :glob:
 
-   UKO/*
-   maize/*
-   rust/*
-   sched/*
-   virtmem/*
+    UKO/index
+    sched/index
+    rust/index
+    maize/index
+    virtmem/index
