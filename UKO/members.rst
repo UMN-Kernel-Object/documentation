@@ -18,6 +18,7 @@ I happen to be a Hawaiian pizza fan.
 
 
 **Evan Voogd**
+
 Computer Science Major at UMN with interest in operating systems. I started my
 Linux journey with Ubuntu running in WSL back in the summer before my freshman
 year. I use Vim and am neutral on the issue of pineapple pizza.
@@ -42,6 +43,7 @@ programming languages bounce between C/C++ and Python depending on how
 lazy I am feeling.
 
 **Cas Hermann**
+
 Computer Science major with an interest in embedded systems and data communications.
 
 **Brendan Gee**
@@ -55,6 +57,7 @@ I was exposed to Linux kernel when I taught myself a MIT operating system course
 I am currently working on a project from a distribued system course -- MIT 6.824 using Go. My favorite languages are C/C++ and Go.
 
 **Noah Hendrickson**
+
 A junior in computer science interested in Graphics, Machine Learning,
 and the intersection of the two, as well as dabbling a bit in Operating systems
 and distributed computing...maybe. My favorite programming
@@ -62,10 +65,11 @@ language bounces between C, C++, and Rust. (and Javascript but shhh I didn't adm
 I also really like kiwis :)
 
 **Kirsten Ericson**
+
 Currently a junior in the Computer Science program. Interested in lots of
- different topics, but am most interested in front end development. I am excited
- to be interning with Target this summer for software development, and a fun
- fact about me is I will always be the pink-est person in the room.
+different topics, but am most interested in front end development. I am excited
+to be interning with Target this summer for software development, and a fun
+fact about me is I will always be the pink-est person in the room.
 
 
 **Joel Kuehne**
@@ -88,17 +92,21 @@ I haven't worked with the Linux kernel before but I have messed with a few linux
 I don't really have favorite language, but I usually prototype in Python and look to finalize projects with Java.
 
 **Jada Lilleboe**
+
 Computer science major interested in learning more about the Linux kernel! My favorite
 programming languages are OCaml and Python.
 
 **[Hanan Abdirahman]**
+
 I am Computer Science major. I love movies and tv shows.
 
 
 **Margaret Degen**
+
 I am junior majoring in Computer Science.My favorite languages are Python,C++, and Javascript.
 
 **Sam Highbargin**
+
 I am a first year Master's student. My primary field of research is the various species of wildcats
 and the cuteness of their kittens. I've been a TA for almost three years now, so if you've had a
 class with a bunch of cat pictures on the lab slides, it was probably me. My favorite language is C.
