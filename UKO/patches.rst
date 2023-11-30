@@ -31,7 +31,7 @@ Sending a Patch
 Patches may be sent to the mailing list using
 `git-send-email(1) <https://git-scm.com/docs/git-send-email>`_,
 but some configuration must be done beforehand. Add the following to your Git
-configuration file::
+configuration file:
 
 .. code-block::
    :caption: .config/git/config
