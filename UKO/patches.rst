@@ -2,8 +2,8 @@
 Code Patches
 ============
 
-All code patches may be submitted to
-`UKO-PATCHES@lists.umn.edu <UKO-PATCHES@lists.umn.edu>`_ for review.
+All code patches may be submitted to the
+`UKO-PATCHES@lists.umn.edu <UKO-PATCHES@lists.umn.edu>`_ mailing list for review.
 Before sending a patch, your UMN email must be subscribed to the list.
 You can do that `here <https://lists.umn.edu/cgi-bin/wa?A0=UKO-PATCHES&X=O363B529658766E8A03&Y>`_.
 
@@ -33,9 +33,9 @@ Patches may be sent to the mailing list using
 but some configuration must be done beforehand. Add the following to your Git
 configuration file::
 
-.. code:: sh
+.. code-block::
+   :caption: .config/git/config
 
-   # cat .config/git/config
    [user]
      name = First Last
      email = x500@umn.edu
