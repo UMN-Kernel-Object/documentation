@@ -7,3 +7,4 @@ UKO General
     :glob:
 
     members
+    patches
