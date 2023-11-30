@@ -51,9 +51,9 @@ Patches can then be sent to a mailing list using::
 
 Before the email is sent out, you will be prompted to enter a mail
 password. Your standard UMN password will not work here. Instead, you must
-create a one-time-password (OTP) to send mail using
+create an app password to send mail using
 `git-send-email(1) <https://git-scm.com/docs/git-send-email>`_.
-Instructions on creating an OTP for your UMN account can be found
+Instructions on creating an app password for your UMN account can be found
 `here <https://docs.google.com/presentation/d/1IjUKb9kCIbKOGVrz4T-zBAUCBCYsclrqXDjEc0wRzwI/edit?usp=sharing>`_.
 Be sure to save this password for use during future patch submissions.
 
