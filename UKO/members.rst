@@ -117,9 +117,9 @@ Advisors
 **Alex Elder**
 
 I am a Linux kernel contributor and maintainer. I currently work at Linaro,
-where I am focused on Linux support for ARM devices. I will judge you for
-courageously admitting that you like pineapple on pizza, but I will eat
-Hawaiian pizza if I think no one is watching.
+where I am focused on Linux support for ARM devices. I will not judge you for
+cowardly admitting that you like pineapple on pizza.  I will eat
+Hawaiian pizza if required/forced.
 
 
 **Jack Kolb**
