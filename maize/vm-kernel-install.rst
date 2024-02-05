@@ -28,12 +28,12 @@ Tutorial Steps
     # If missing, ask an admin to run the command
     >> sudo usermod -a -G kvm,libvirt-qemu,libvirt myusername
 
-    # Set environment variable, consider addin this line to ~/.profile so
+    # Set environment variable, consider adding this line to ~/.profile so
     # it is set on each login
     >> export LIBVIRT_DEFAULT_URI=qemu:///session
 
-    # Copy Virtual Machine Image via kauffman's script; amounts to a
-    # virt-clone with some files / options
+    # Copy Virtual Machine Image via Kauffman's script; amounts to a
+    # virt-clone with some files and options
     >> ~kauffman/vm-shares/clone-vm.sh
 
     # Log in to Guest VM and experiment
@@ -50,7 +50,7 @@ Tutorial Steps
     ...
     # Check Guest VM kernel version
     user@kerneldev:~$ uname -a
-    Linux kerneldev 5.15.0-52-generic #58-Ubuntu SMP Thu Oct 13 08:03:55 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
+    Linux kerneldev 5.15.0-92-generic #102-Ubuntu SMP Wed Jan 10 09:33:48 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
 
     # Escape from VM via Ctrl-]
     >>
@@ -61,17 +61,22 @@ Tutorial Steps
     # May need to press Enter to re-display prompt
     user@kerneldev:~$
 
-    # Escape to VM or run `sudo shutdown now`
+    # Escape VM or run `sudo shutdown now`
 
-    # Ensure VM is shutdown before proceeding
+    # Ensure VM is shut down before proceeding
     >> virsh shutdown ubuntu22
 
     # Mount VM image on host via guestmount
     >> mkdir $HOME/mnt
     >> guestmount -a $HOME/.local/share/libvirt/images/ubuntu22.qcow2 -i $HOME/mnt
 
-    # Change to linux source tree (and build it if needed)
+    # Clone linux kernel source from local copy on `maize`
+    >> git clone /srv/git/linux
+
+    # Change to linux source tree and build it
     >> cd $HOME/linux
+    >> make defconfig
+    >> make -j 20
 
     # Install kernel with adjusted root directory
     >> make install INSTALL_PATH=$HOME/mnt/boot
@@ -93,16 +98,16 @@ Tutorial Steps
     # Check that files are listed properly in the /boot directory
     user@kerneldev:~$ ls /boot
     ...
-    vmlinuz-5.15.0-52-generic                  # old kernel
-    vmlinuz-6.1.0-rc2-00189-g23758867219c      # fresh kernel
+    vmlinuz-5.15.0-92-generic                  # old kernel
+    vmlinuz-6.8.0-rc3                          # fresh kernel
     ...
-    System.map-5.15.0-52-generic               # old kernel symbols
-    System.map-6.1.0-rc2-00189-g23758867219c   # fresh symbols
+    System.map-5.15.0-59-generic               # old kernel symbols
+    System.map-6.8.0-rc3                       # fresh symbols
     ...
-    config-5.15.0-52-generic                   # old config
-    config-6.1.0-rc2-00189-g23758867219c       # fresh config
+    config-5.15.0-92-generic                   # old config
+    config-6.8.0-rc3                           # fresh config
     ...
-    initrd.img-5.15.0-52-generic               # old initial ram disk
+    initrd.img-5.15.0-92-generic               # old initial ram disk
     # need a fresh initial ramdisk
 
     user@kerneldev:~$
@@ -131,19 +136,21 @@ Tutorial Steps
     W: Possible missing firmware /lib/firmware/i915/dg1_huc.bin for built-in driver i915
     ... # various other warnings
 
-    # Update the boot loader (kernel selector)
+    # Update the boot loader (lets us select kernel at boot)
     user@kerneldev:~$ sudo update-grub
 
     # Reboot the guest vm
     user@kerneldev:~$ sudo reboot
     ....
 
-    # Grub menu should appear, select new kernel 6.1
+    # Grub menu should appear, select new kernel 6.8
                                  GNU GRUB  version 2.06
 
      +----------------------------------------------------------------------------+
-     |*Ubuntu, with Linux 6.1.0-rc2-00189-g23758867219c                           |
-     | Ubuntu, with Linux 6.1.0-rc2-00189-g23758867219c (recovery mode)           |
+     |*Ubuntu, with Linux 6.8.0-rc3                                               |
+     | Ubuntu, with Linux 6.8.0-rc3 (recovery mode)                               |
+     | Ubuntu, with Linux 5.15.0-92-generic                                       |
+     | Ubuntu, with Linux 5.15.0-92-generic (recovery mode)                       |
      | Ubuntu, with Linux 5.15.0-52-generic                                       |
      | Ubuntu, with Linux 5.15.0-52-generic (recovery mode)                       |
      |                                                                            |
@@ -165,14 +172,14 @@ Tutorial Steps
 
     # Check that the new kernel is running
     user@kerneldev:~$ uname -a
-    Linux kerneldev 6.1.0-rc2-00189-g23758867219c #1 SMP PREEMPT_DYNAMIC Sat Oct 29 21:27:42 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
+    Linux kerneldev 6.8.0-rc3 #1 SMP PREEMPT_DYNAMIC Sun Feb  4 20:59:48 CST 2024 x86_64 x86_64 x86_64 GNU/Linux
 
     # Press Ctrl-] to escape to host shell
     >>
 
     # Take a snapshot of the install
-    >> virsh snapshot-create-as ubuntu22 kernel-61-installed
-    Domain snapshot kernel-61-installed created
+    >> virsh snapshot-create-as ubuntu22 kernel-68-installed
+    Domain snapshot kernel-68-installed created
 
     # Congratulations!
 
