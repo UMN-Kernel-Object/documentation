@@ -183,12 +183,13 @@ will most likely see the following versions reflected in ``/boot`` and on the
 GRUB menu when your VM starts up. They likely look something like the following:
 
 1. ``5.15.0-52-generic``
-2. ``6.1.0-rc7-00101-g01f85...``
-3. ``6.1.0-rc7-00102-gabe44...``
+2. ``5.15.0-92-generic``
+3. ``6.8.0-rc3``
+4. ``6.8.0-rc3-00001-gc4cbdfd00f16``
 
-The first version came with the base Ubuntu 22.04 installation and the second
-version was installed in our previous VM and kernel boot tutorial. You should
-boot the `last`, most recent version as it will contain our new module.
+The first two versions came with the base Ubuntu 22.04 installation and the
+third version was installed in our previous VM and kernel boot tutorial. You
+should boot the `last`, most recent version as it will contain our new module.
 
 The kernel module should have printed out a message to the cosole when your VM
 booted up, but it probably went by too quickly for you to notice. We'll use the
@@ -197,7 +198,7 @@ booted up, but it probably went by too quickly for you to notice. We'll use the
 .. code:: sh
 
 	>> uname -a
-	Linux kerneldev 6.1.0-rc7-00102-gabe44...
+	Linux kerneldev 6.8.0-rc3-00001-gc4cbdfd00f16
     >> journalctl -b
     # Boot Log Messages Appear on Screen
 
@@ -205,7 +206,7 @@ If you search this output, you should find the following line:
 
 .. code:: sh
 
-    Nov 29 22:23:38 kerneldev kernel: Hello, World!
+    Feb 04 22:23:38 kerneldev kernel: Hello, World!
 
 Where the date at the left will likely be different for you. Congratulations,
 you have now booted a kernel containing some of your own custom code!
@@ -256,7 +257,7 @@ pointer.
 
 `Note`: If you're following along and make this change, then compile and
 install your kernel, you'll end up with a new set of files in ``/boot`` and a
-new GRUB menu entry called something like ``6.1.0-rc7-0102-...-dirty``, since
+new GRUB menu entry called something like ``6.8.0-rc3-0001-...-dirty``, since
 you are creating a kernel based changes that are uncommitted to git.
 
 Booting this kernel should produce a message indicating that a panic has
@@ -304,7 +305,7 @@ but it will not incorporate it directly into the kernel as it did before.
 
 Now, we reconfigure our kernel with ``make oldconfig``, then recompile and
 reinstall the new kernel into our virtual machine. Reboot your virtual machine,
-making sure to select the ``6.1.0-rc7-00102-...-dirty`` kernel version.
+making sure to select the ``6.8.0-rcc-00001-...-dirty`` kernel version.
 
 You should now see your VM boot successfully. Since our module was not
 automatically loaded, its bug has not (yet) affected our system. Let's now
@@ -329,7 +330,7 @@ to.
 
 The current issue preventing our developing such a script is identifying a
 method to run commands `in the VM` from a script executed on the host. This will
-be necessary for the `update-initramfs` and `update-grub` commands.
+be necessary for the ``update-initramfs`` and ``update-grub`` commands.
 
 If anyone would like to investigate this or knows of a solution, it would be a
 valuable contribution to the group!
