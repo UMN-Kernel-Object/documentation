@@ -191,7 +191,7 @@ The first two versions came with the base Ubuntu 22.04 installation and the
 third version was installed in our previous VM and kernel boot tutorial. You
 should boot the `last`, most recent version as it will contain our new module.
 
-The kernel module should have printed out a message to the cosole when your VM
+The kernel module should have printed out a message to the console when your VM
 booted up, but it probably went by too quickly for you to notice. We'll use the
 ``journalctl`` tool to review the logs from our most recent kernel boot.
 
