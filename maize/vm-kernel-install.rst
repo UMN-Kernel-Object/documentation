@@ -17,7 +17,7 @@ Tutorial Steps
 .. code:: sh
 
     # log into the maize server
-    laptop>> ssh myx500@maize.cs.umn.edu
+    laptop>> ssh myx500@cs-u-maize.cs.umn.edu
     ...
 
     # check that you are a member of the correct Linux groups to run VMs
