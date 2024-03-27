@@ -1,0 +1,213 @@
+\documentclass[aspectratio=169, notes]{beamer}
+% \setbeamertemplate{note page}[plain]
+% \setbeameroption{show notes on second screen=right}
+\usepackage{amsfonts}
+\usepackage{pifont}
+\usepackage{newpxmath}
+\usepackage{newpxtext}
+
+\usepackage{listings}
+\usepackage{tikz}
+\usetikzlibrary{quotes}
+
+\definecolor{c1}{RGB}{ 86, 180, 233}
+\definecolor{c2}{RGB}{  0, 158, 115}
+\definecolor{c3}{RGB}{230, 159,   0}
+\definecolor{c4}{RGB}{213,  94,   0}
+\definecolor{c5}{RGB}{204, 121, 167}
+\definecolor{c6}{RGB}{255, 170,  20}
+
+\lstdefinelanguage{Nix}{
+	classoffset=0,
+	morekeywords={let,in},
+	morecomment=[l]{\#},
+	morecomment=[s]{/*}{*/},
+	moredelim=*[s][stringstyle]{"}{"},
+	moredelim=*[s][\color{c1}]{\$\{}{\}},
+	moredelim=*[is][\color{black}]{<|}{|>},
+	moredelim=*[is][\color{c4}]{<:}{:>},
+	% Highlight literals
+	classoffset=1,
+	morekeywords={true},
+	keywordstyle=\color{c4}\bfseries,
+}
+\lstset{
+	basicstyle=\small\ttfamily,
+	commentstyle=\color{gray},
+	keywordstyle=\color{c2}\bfseries,
+	numberstyle=\color{c3},
+	stringstyle=\color{c3},
+	showstringspaces=false
+}
+
+\newcommand{\todo}[1]{\note[item]{\textcolor{c4}{\textbf{TODO:}} #1}}
+
+\newcommand{\yes}{{\color{c2}\ding{51}}}
+\newcommand{\no}{{\color{c4}\ding{55}}}
+
+\title{Nix(OS)}
+\date{March 27, 2024}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{\texttt{\$ whoami}}
+	\begin{itemize}
+		\item Nathan Ringo (\texttt{remexre}\footnote{\url{https://remexre.com/}})
+		\item PhD student at UMN (MELT\footnote{\url{https://melt.cs.umn.edu/}} lab: PL, compilers, attribute grammars)
+		\item Researcher at SIFT\footnote{\url{https://sift.net/}} (program analysis, network security, etc.)
+		\item Nixpkgs maintainer (only of one package, \texttt{linenoise})
+		\item Nix user for $\sim$4 years, NixOS for $\sim$3, Linux for $\sim$15
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\begin{tikzpicture}[thick, every edge quotes/.style={fill=white,font=\footnotesize}]
+			\draw[color=white] (-5, -3) rectangle (5, 4);
+			\draw (0, 0.5) node {\includegraphics[width=1cm]{nix-snowflake.png}};
+			\draw ({3.25 * sin(0)  }, {3.25 * cos(0)  }) node {the language};
+			\draw ({3.75 * sin(120)}, {3.75 * cos(120)}) node {the operating system};
+			\draw ({3.75 * sin(240)}, {3.75 * cos(240)}) node {the build system};
+			\draw[color=c2] ({0.5 * sin(0)  }, {0.5 * cos(0)   + 0.5}) edge["is"] ({3 * sin(0)  }, {3 * cos(0)  });
+			\draw[color=c2] ({0.5 * sin(120)}, {0.5 * cos(120) + 0.5}) edge["is"] ({3 * sin(120)}, {3 * cos(120)});
+			\draw[color=c2] ({0.5 * sin(240)}, {0.5 * cos(240) + 0.5}) edge["is"] ({3 * sin(240)}, {3 * cos(240)});
+			\draw[color=c4] ({3 * sin(0)  }, {3 * cos(0)  }) edge["is not"] ({3 * sin(120)}, {3 * cos(120)});
+			\draw[color=c4] ({3 * sin(120)}, {3 * cos(120)}) edge["is not"] ({3 * sin(240)}, {3 * cos(240)});
+			\draw[color=c4] ({3 * sin(240)}, {3 * cos(240)}) edge["is not"] ({3 * sin(0)  }, {3 * cos(0)  });
+		\end{tikzpicture}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Nix (the language)}
+	\begin{itemize}
+		\item ``JSON plus functions''
+		      \begin{itemize}
+			      \item Unfortunately, the syntax is a bit weird
+			      \item Dynamically typed, lazily evaluated, purely functional
+			      \item \texttt{let} expressions like in OCaml
+			      \item Lambdas are \texttt{arg: body}, function calls are \texttt{f x1 x2}
+			      \item Lambdas can destructure with \texttt{\{ attr1, attr2 ? default\}: body}
+			      \item String interpolation with \texttt{"...\$\{expr\}..."}
+		      \end{itemize}
+	\end{itemize}
+	\lstinputlisting[language=Nix]{nix-code.nix}
+\end{frame}
+
+\begin{frame}{Nix (the build system)}
+	\begin{itemize}
+		\item Stores files in a \emph{content-addressed store}
+		      \begin{itemize}
+			      \item \texttt{/nix/store/\$\{hash\}-\$\{name\}}
+		      \end{itemize}
+		\item Builds are sandboxed while they happen
+		      \begin{itemize}
+			      \item Can only read from the Nix store
+			      \item Must declare dependencies
+			      \item Only write to their output directory
+		      \end{itemize}
+		\item \emph{Either}:
+		      \begin{itemize}
+			      \item Builds cannot access the network, and the \texttt{\$\{hash\}} is the hash of the build script
+			      \item Builds can access the network, and \texttt{\$\{hash\}} is the hash of the output
+		      \end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Derivations}
+	\begin{itemize}
+		\item Nix (the language) is used to write build scripts for Nix (the build system), which are called \emph{derivations}
+	\end{itemize}
+	\lstinputlisting[language=Nix,basicstyle=\footnotesize\ttfamily]{derivation.nix}
+\end{frame}
+
+\begin{frame}{Nixpkgs and Flakes}
+	\begin{itemize}
+		\item Nixpkgs is the standard library for Nix (the language), and the main repository for Nix (the build system)
+		\item Traditionally imported as \texttt{pkgs}; packages might be e.g. \texttt{pkgs.hello} (GNU Hello), \texttt{pkgs.firefox} (Firefox), \texttt{pkgs.python311Packages.ipython} (IPython)
+		\item Important functions: \texttt{pkgs.callPackage}, \texttt{pkgs.stdenv.mkDerivation}
+		      \begin{itemize}
+			      \item \texttt{pkgs.callPackage} is \texttt{import} but better
+			      \item \texttt{pkgs.stdenv.mkDerivation} is \texttt{builtins.derivation} but better
+		      \end{itemize}
+		      \vspace{1cm}
+		\item Flakes are ``a Git repo with Nix code''
+		\item Flakes can depend on flakes, pin to versions, etc.
+		\item e.g. the Neovim text editor, the OCaml LSP, a utility library for customizing Rust toolchains (fenix)
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{What nice things does \texttt{stdenv.mkDerivation} give me?}
+	\begin{itemize}
+		\item Lots of nice default behavior for:
+		      \begin{itemize}
+			      \item Depending on packages from various ecosystems easily
+			      \item Building ``\texttt{./configure \&\& make \&\& make install}'' software easily
+			      \item Handling cross-compilation
+			      \item Checking license compliance
+		      \end{itemize}
+		\item Has hooks for:
+		      \begin{itemize}
+			      \item Patching software (source or binaries) to work better with Nix
+			      \item Integrating other build systems, e.g. CMake, Meson, Ninja
+		      \end{itemize}
+		\item Along with \texttt{pkgs.callPackage}, allows users to customize packages:
+		      \begin{itemize}
+			      \item \texttt{pkgs.openssl.override \{ withCryptodev = true; \}}
+			      \item \texttt{pkgs.openssl.overrideAttrs (old: \{} \\
+			            \hspace{1cm}\texttt{patches = old.patches ++ [ ./foo.patch ];} \\
+			            \texttt{\})} \\
+		      \end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{The package I maintain}
+	\url{https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/libraries/linenoise/default.nix}
+\end{frame}
+
+\begin{frame}{Developing with Nix}
+	\begin{itemize}
+		\item You can define a \texttt{devShell} with \texttt{pkgs.mkShell}
+		      \begin{itemize}
+			      \item Has dependencies like a normal derivation
+			      \item \texttt{inputsFrom} -- derivations to copy dependencies from
+			      \item \texttt{shellHook} -- some bash code to run when entering the shell
+		      \end{itemize}
+		\item You can enter a shell whenever you enter a directory with \href{https://direnv.net/}{direnv}
+		      \vspace{1cm}
+		\item Each project gets \emph{exactly} the same dependencies on every developer's machine
+		\item Developers don't need to globally install those dependencies; each project's dependencies are isolated
+		\item Developers can keep using their preferred shell, preferred editor, etc.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{NixOS}
+	\begin{itemize}
+		\item Generate configs for every package on your OS as Nix packages, and a script to deploy them to the current machine
+		\item Win \#1: You can reproduce the config on other machines, or in CI
+		\item Win \#2: You can roll back to a previous config easily
+		\item Win \#3: You can share snippets of config as code
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Vocab and Q\&A}
+	\begin{center}
+		\begin{tabular}{ c | c }
+			Nix           & Rest of the world      \\
+			\hline\hline
+			Derivation    & package (built by Nix) \\
+			Flake         & package (of Nix code)  \\
+			Attribute     & key-value pair         \\
+			Attribute Set & dict, hash, table, map
+		\end{tabular}
+	\end{center}
+	\vspace{1cm}
+	\begin{center}
+		{\huge Questions?}
+	\end{center}
+	\vspace{1cm}
+	{\hfill Next up: \href{https://github.com/UMN-Kernel-Object/scripts/blob/main/kern-me-up.sh}{\texttt{kern-me-up.sh}}}
+\end{frame}
+
+\end{document}
