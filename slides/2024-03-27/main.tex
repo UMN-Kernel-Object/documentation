@@ -62,7 +62,22 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{What is Nix?}
+	\begin{itemize}
+		\item First and foremost, a build system
+		\item Also a language for using that build system
+		\item Also a Linux distribution, NixOS
+		\item Claims (\url{https://nixos.org/}):
+		      \begin{itemize}
+			      \item ``Declarative builds and deployments.''
+			      \item ``\textbf{Reproducible} -- Nix builds packages in isolation from each other. This ensures that they are reproducible and don't have undeclared dependencies, so \emph{if a package works on one machine, it will also work on another.}''
+			      \item ``\textbf{Declarative} -- Nix makes it \emph{trivial to share development and build environments} for your projects, regardless of what programming languages and tools you're using.''
+			      \item ``\textbf{Reliable} -- Nix ensures that installing or upgrading one package \emph{cannot break other packages}. It allows you to \emph{roll back to previous versions}, and ensures that no package is in an inconsistent state during an upgrade.''
+		      \end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{What is Nix?}
 	\begin{center}
 		\begin{tikzpicture}[thick, every edge quotes/.style={fill=white,font=\footnotesize}]
 			\draw[color=white] (-5, -3) rectangle (5, 4);
