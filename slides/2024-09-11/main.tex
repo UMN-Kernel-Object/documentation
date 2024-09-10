@@ -1,0 +1,311 @@
+\documentclass[aspectratio=169, notes]{beamer}
+\setbeamertemplate{note page}[plain]
+\setbeameroption{show notes on second screen=right}
+\usepackage{amsfonts}
+\usepackage{pifont}
+\usepackage{newpxmath}
+\usepackage{newpxtext}
+
+\definecolor{umn maroon}{RGB}{122,   0,  25}
+\definecolor{umn gold}{RGB}{255, 204,  51}
+
+\newcommand{\todo}[1]{\note[item]{\textcolor{red}{\textbf{TODO:}} #1}}
+
+\begin{document}
+
+{
+\setbeamercolor{background canvas}{bg=umn gold}
+\newgeometry{margin=0cm}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{background canvas}[default]
+\frame{\includegraphics[width=\textwidth]{title-page.pdf}}
+}
+
+\begin{frame}{Agenda}
+	\begin{itemize}
+	\item Pizza and Conversation
+		\begin{itemize}
+		\item Grab some pizza and introduce yourself to your neighbors
+		\item \textbf{Sign in} on the attendance sheet -- this is how we get funding for more pizza!
+		\item Check the checkbox if you want to be added to our mailing list
+		\end{itemize}
+	\item Officer and advisor introduction
+	\item Group overview and logistics
+	\item Linux kernel
+	\item Wrap-up
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Officer introductions}
+	\begin{itemize}
+	\item Devajya Khanna (\texttt{@devajya}), President
+		\begin{itemize}
+		\footnotesize
+		\item TODO (profile)
+		\item TODO (emojis)
+		\end{itemize}
+	\item Nathan Ringo (\texttt{@remexre}), Vice President
+		\begin{itemize}
+		\footnotesize
+		\item CSci PhD student (programming languages), researcher at \href{https://sift.net/}{SIFT} (security and systems)
+		\item
+		\includegraphics[width=1em]{neovim.png} (\includegraphics[width=1em]{vim.png})
+		/
+		\includegraphics[width=1em]{nix.png}
+		/
+		\includegraphics[width=1em]{haskell.png}
+		\includegraphics[width=1.5em]{lisp.png}
+		\includegraphics[width=1.25em]{rust.png}
+		\end{itemize}
+	\item Hafsa Abdirahman (\texttt{@hafsa}), Secretary
+		\begin{itemize}
+		\footnotesize
+		\item TODO (profile)
+		\item TODO (emojis)
+		\end{itemize}
+	\item Anirudh Krishnakumar (\texttt{@anirudh29.}), Treasurer
+		\begin{itemize}
+		\footnotesize
+		\item TODO (profile)
+		\item TODO (emojis)
+		\end{itemize}
+	\item Sanjali Roy (\texttt{@sunjelly}), Communications Officer
+		\begin{itemize}
+		\footnotesize
+		\item TODO (profile)
+		\item TODO (emojis)
+		\end{itemize}
+	\end{itemize}
+	\todo{Make sure everyone fills this out}
+\end{frame}
+
+\begin{frame}{Advisor introductions}
+	\begin{itemize}
+	\item Jack Kolb
+		\begin{itemize}
+		\item UMN teaching professor and alumnus
+		\item Research experience in computing systems
+		\item TODO (emojis)
+		\end{itemize}
+	\item Alex Elder
+		\begin{itemize}
+		\item UMN alumnus and kernel maintainer / developer
+		\item Expertise on development within the Linux kernel community
+		\item TODO (emojis)
+		\end{itemize}
+	\end{itemize}
+	\todo{Make sure everyone fills this out}
+\end{frame}
+
+\begin{frame}{Group overview}
+	\begin{itemize}
+	\item What is UKO?
+		\begin{itemize}
+		\item UMN Kernel Object (\texttt{umn.ko})
+		\item In Linux, kernel modules have the \texttt{.ko} file extension
+		\end{itemize}
+	\item What is UKO focused on?
+		\begin{itemize}
+		\item The Linux kernel (and other operating systems, and free software generally)
+		\item Discussion of the technical and social aspects about the above
+		\end{itemize}
+	\item What are UKO's long-term goals?
+		\todo{Revise long-term goals to align with mission statement}
+		\begin{itemize}
+		\item Take on some more significant kernel-related projects
+		\item Pursue members' interests and goals
+		\item Mend our relationship with the Linux community and restore the University's ability to contribute to Linux
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Group logistics}
+	\begin{itemize}
+	\item How is UKO organized?
+		\begin{itemize}
+		\item Whole-group meetings every 2 weeks
+		\item Subgroup meetings
+		\end{itemize}
+	\item What are UKO's goals this semester?
+		\begin{itemize}
+		\item Get everyone hacking on some kernel code
+			\begin{itemize}
+			\item Become familiar with the Linux contribution process
+			\item Learn to work with and extend a large codebase
+			\end{itemize}
+		\item Build the expertise needed for members to make a more significant kernel-related project
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Subgroups}
+	\begin{itemize}
+	\item If you want to lead a subgroup, just ask!
+	\item Think about:
+		\begin{itemize}
+		\item TODO
+		\item Mission statement!
+		\item Quorate
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\section{Alex}
+
+\begin{frame}{What is Linux?}
+	\pause
+	\begin{itemize}
+	\item Linux ``started'' August 25, 1991 when Linus Torvalds announced his Minix-like operating system on the ``\texttt{comp.os.minux}'' newsgroup
+		\begin{itemize}
+		\item ``just a hobby, won't be big and professional like gnu''
+		\end{itemize}
+	\item Released with a GNU GPL license; probably the most successful ``open source'' project
+	\item Gradually attracted contributors in the early 1990's
+		\begin{itemize}
+		\item Red Hat got its start when a technical guy packaging a ``distribution'' met a business guy with big ideas
+		\end{itemize}
+	\item Started gaining commercial success in the late '90's
+		\begin{itemize}
+		\item Red Hat IPO in 1999
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Where is Linux used?}
+	\begin{itemize}
+	\item It runs on an extremely wide range of hardware
+		\begin{itemize}
+		\item Raspberry Pi, or even ``IoT'' devices
+		\item Mobile phones and tablets (Android/Chrome OS)
+		\item Laptops and Desktops
+		\item Cloud computing platforms
+		\item Supercomputers
+		\end{itemize}
+	\item It is freely available
+		\begin{itemize}
+		\item Adding value can be worth money though
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Open source}
+	\begin{itemize}
+	\item GNU Public License (GPL) permits anyone to use the code, but requires that any derived/modified source code be public
+		\begin{itemize}
+		\item ``Contagious'' license
+		\end{itemize}
+	\item ``Free software'' was/is the way GNU describes it
+		\begin{itemize}
+		\item Free as in speech, not free as in beer
+		\end{itemize}
+	\item ``Open source'' term is a little gentler
+		\begin{itemize}
+		\item Not interpreted by commercial interests as ``no profit''
+		\item GNU also tends to have a stricter view on enforcing this ``freedom''
+		\item Other licenses fall in this category (MIT, Apache, BSD, LGPL, etc)
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Who develops Linux?}
+	\begin{itemize}
+	\item Thousands of people around the world (1921 in Linux v6.5)
+	\item Hundreds of companies (218 in Linux v6.5)
+	\item Developers, reviewers, testers, maintainers, bug reporters
+		\begin{itemize}
+		\item \url{https://lwn.net/Articles/941675/}
+		\end{itemize}
+	\item Anyone \emph{can} contribute
+		\begin{itemize}
+		\item But your contribution will be ignored (or worse) if you do it wrong
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{How is the Linux kernel source code managed?}
+	\begin{itemize}
+	\item Linus Torvalds ``owns'' the top-level, ``official'' source code
+		\begin{itemize}
+		\item 9-10 week release cycle, starting with ``-rc1'', ``-rc2'', and so on
+		\item Linux v6.10 was the most recent release; v6.11 is under development
+		\end{itemize}
+	\item Source tree is maintained as a hierarchy of components
+		\begin{itemize}
+		\item Core kernel, drivers, networking, file systems, etc.
+		\end{itemize}
+	\item Components have \strong{maintainers} responsible for them
+		\begin{itemize}
+		\item Only a maintainer can accept a change to a component
+		\end{itemize}
+	\item Maintainers supply their accepted changes to their ``parent'' in the hierarchy
+		\begin{itemize}
+		\item Linux is the top-level maintainer
+		\item Maintainers trust (but verify) their ``subordinates''
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{How are changes made to the kernel?}
+	\begin{itemize}
+	\item A developer (anyone) proposes a change
+		\begin{itemize}
+		\item This takes the form of a patch
+		\item Shared via \strong{archived} mailing lists which are publicly available
+		\item Often a ``series'' of patches is required to implement a change
+		\end{itemize}
+	\item The change is reviewed (by anyone, but especially the maintainer)
+		\begin{itemize}
+		\item Typically, improvements are suggested
+		\end{itemize}
+	\item New versions of the proposed change are sent, and the process repeats
+	\item Eventually the maintainer accepts the change
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Can \strong{you} contribute to Linux?}
+	\begin{itemize}
+	\item \strong{Yes!!!}  But actually, \strong{no}, not right now
+	\item The University of Minnesota is currently banned from contributing
+	\item The ban stems from some incidents in 2021
+		\begin{itemize}
+		\item Research group submitted intentionally bad commits
+		\item This violates Linux contribution policy in several ways
+		\item Ultimate resolution was a ban on future submissions
+		\end{itemize}
+	\item We aim to improve this situation, partially with this group’s activities.
+	\item \strong{It is \colorbox{yellow}{VERY IMPORTANT} that no one ignore this ban}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Resources}
+	\begin{itemize}
+	\item The main Linux development website
+		\begin{itemize}
+		\item \url{https://www.kernel.org/}
+		\end{itemize}
+	\item Current in-tree Linux documentation
+		\begin{itemize}
+		\item \url{https://docs.kernel.org/}
+		\end{itemize}
+	\item Linux kernel mailing list archives
+		\begin{itemize}
+		\item \url{https://lore.kernel.org/}
+		\end{itemize}
+	\item Linux Weekly News
+		\begin{itemize}
+		\item \url{https://www.lwn.net/}
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Wrap-Up}
+	\begin{itemize}
+	\item TODO
+		\begin{itemize}
+		\item TODO
+		\end{itemize}
+	\end{itemize}
+	\todo{write me}
+\end{frame}
+
+\end{document}
