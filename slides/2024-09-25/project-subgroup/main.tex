@@ -41,13 +41,11 @@
 
 \begin{frame}[fragile]{Project Idea -- Problem}
 	\begin{itemize}
-		\item ``LL/SC dirops'' (I'm open to a better name...)
+		\item This code runs as root, and ensures that files in a project directory can be accessed by everyone in the project's group
 	\end{itemize}
 
 	\begin{example}
-		\begin{semiverbatim}
-			\input{before.c}
-		\end{semiverbatim}
+		\begin{semiverbatim}\input{before.c}\end{semiverbatim}
 	\end{example}
 
 	\begin{itemize}
@@ -69,8 +67,32 @@
 				            \item As with all modifications, this version of \texttt{chown} clears the flag when it modifies the file
 			            \end{itemize}
 		      \end{itemize}
-		\item The project is to implement this in the kernel -- also other syscalls than \texttt{chown} (e.g. \texttt{unlink}, \texttt{chmod})
-		\item Initial version hopefully takes a couple weeks of dev streams, then we get to benchmarking, optimization, code review, ...
+		\item The project is to implement this in the kernel -- also other syscalls than \texttt{stat} and \texttt{chown} (e.g. \texttt{access}, \texttt{chmod}, \texttt{unlink}, ...)
+		\item This is inspired by a CPU feature called LL/SC\footnote{\url{https://en.wikipedia.org/wiki/Load-link/store-conditional}}, so I'm calling it ``LL/SC dirops'' as a working name -- I'm open to suggestions for a better one!
+		\item Aim to get v1 done this fall, then we get to code review, benchmarking, optimization, etc. in the spring
+		      \begin{itemize}
+			      \item Hopefully, the version for just \texttt{stat} and \texttt{chown} is done before Thanksgiving
+		      \end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Project Subgroup -- Get Involved}
+	\begin{itemize}
+		\item Join the \texttt{\#llsc-dirops} channel on Discord
+		      \begin{itemize}
+			      \item Use the \texttt{/github-invite} command in that channel to get added to the \texttt{github.com} repo
+		      \end{itemize}
+		      \vspace{1em}
+		\item Are you excited to get your hands dirty doing development work?
+		      \begin{itemize}
+			      \item Volunteer to run dev streams!
+			      \item (Or just hack on the code if streaming sounds stressful)
+		      \end{itemize}
+		      \vspace{1em}
+		\item Are you interested in learning more but not confident in your ability to help?
+		      \begin{itemize}
+			      \item Join the dev streams and ask questions!
+		      \end{itemize}
 	\end{itemize}
 \end{frame}
 
