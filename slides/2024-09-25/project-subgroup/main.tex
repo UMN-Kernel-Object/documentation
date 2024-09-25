@@ -58,16 +58,18 @@
 
 \begin{frame}{Project Idea -- Solution}
 	\begin{itemize}
-		\item A solution I thought of:
-		      \begin{itemize}
-			      \item Have a version of \texttt{stat} that sets a flag on the file (the dirent)
-			      \item Any modification of the file clears the flag, no matter who does it
-			      \item Have a version of \texttt{chown} that only works if the flag is set -- otherwise, it returns an error
-			            \begin{itemize}
-				            \item As with all modifications, this version of \texttt{chown} clears the flag when it modifies the file
-			            \end{itemize}
-		      \end{itemize}
-		\item The project is to implement this in the kernel -- also other syscalls than \texttt{stat} and \texttt{chown} (e.g. \texttt{access}, \texttt{chmod}, \texttt{unlink}, ...)
+		% \item A solution I thought of:
+		% \begin{itemize}
+		% \item Have a version of \texttt{stat} that sets a flag on the file (the dirent)
+		% \item Any modification of the file clears the flag, no matter who does it
+		% \item Have a version of \texttt{chown} that only works if the flag is set -- otherwise, it returns an error
+		% \begin{itemize}
+		% \item As with all modifications, this version of \texttt{chown} clears the flag when it modifies the file
+		% \end{itemize}
+		% \end{itemize}
+		\item A possible solution: have a version of \texttt{stat} and \texttt{chown} that check if anyone modified the file between the \texttt{stat} and \texttt{chown}
+		\item The project is to implement this in the kernel -- also for other syscalls than \texttt{stat} and \texttt{chown} (e.g. \texttt{access}, \texttt{chmod}, \texttt{unlink}, ...)
+		      \pause
 		\item This is inspired by a CPU feature called LL/SC\footnote{\url{https://en.wikipedia.org/wiki/Load-link/store-conditional}}, so I'm calling it ``LL/SC dirops'' as a working name -- I'm open to suggestions for a better one!
 		\item Aim to get v1 done this fall, then we get to code review, benchmarking, optimization, etc. in the spring
 		      \begin{itemize}
