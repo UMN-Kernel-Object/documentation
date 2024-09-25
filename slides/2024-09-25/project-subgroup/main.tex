@@ -1,0 +1,77 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\usepackage{amsfonts}
+\usepackage{pifont}
+\usepackage{newpxmath}
+\usepackage{newpxtext}
+
+\date{September 25, 2024}
+
+\begin{document}
+
+\begin{frame}{Project Subgroup}
+	\pause
+	\begin{block}{Goal}
+		This subgroup's goal is to make a meaningful and useful patchset for the kernel, and get it accepted upstream after passing appropriate review.
+
+		\vspace{1em}
+
+		A secondary goal is to let members newer to kernel programming see how more experienced members solve different problems in the kernel, and to encourage dialogue between these groups.
+	\end{block}
+	\begin{itemize}
+		\item This kind of thing is how we get unbanned from the kernel!
+		\item It'll also hopefully turn into an academic publication, which is nice to have on a resume
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Organization}
+	\begin{itemize}
+		\item<1-> Mostly online, through Discord and GitHub
+			\begin{itemize}
+				\item ``Real'' kernel work doesn't use GitHub, but this will make it much easier for people to dip their toes in
+			\end{itemize}
+		\item<2-> Three main prongs
+			\begin{itemize}
+				\item<2-> Development work on the project -- hopefully most people in the subgroup make some change at some point, even if it's ``just'' working on docs, comments, or tests
+				\item<3-> Development streams with Q\&A -- a core group of 2-5 volunteers that commit to doing 2-3 hours of dev work every 2 weeks, streaming it on Discord, and answering questions from people who join the call (e.g. ``why are you using \texttt{GFP\_KERNEL\_ACCOUNT} here, what does that flag mean?'')
+				\item<4-> Code review with the whole group -- this might be every other or every third meeting in the spring?
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Project Idea -- Problem}
+	\begin{itemize}
+		\item ``LL/SC dirops'' (I'm open to a better name...)
+	\end{itemize}
+
+	\begin{example}
+		\begin{semiverbatim}
+			\input{before.c}
+		\end{semiverbatim}
+	\end{example}
+
+	\begin{itemize}
+		\pause
+		\item This code has a security bug!
+		      \pause
+		\item What if an attacker replaces \texttt{path} with a hard-link to \texttt{/bin} between \texttt{stat} and \texttt{chown}?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Project Idea -- Solution}
+	\begin{itemize}
+		\item A solution I thought of:
+		      \begin{itemize}
+			      \item Have a version of \texttt{stat} that sets a flag on the file (the dirent)
+			      \item Any modification of the file clears the flag, no matter who does it
+			      \item Have a version of \texttt{chown} that only works if the flag is set -- otherwise, it returns an error
+			            \begin{itemize}
+				            \item As with all modifications, this version of \texttt{chown} clears the flag when it modifies the file
+			            \end{itemize}
+		      \end{itemize}
+		\item The project is to implement this in the kernel -- also other syscalls than \texttt{chown} (e.g. \texttt{unlink}, \texttt{chmod})
+		\item Initial version hopefully takes a couple weeks of dev streams, then we get to benchmarking, optimization, code review, ...
+	\end{itemize}
+\end{frame}
+
+\end{document}
