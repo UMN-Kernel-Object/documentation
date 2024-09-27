@@ -2,42 +2,34 @@
 Maize
 =====
 
-UKO has access to a desktop machine with constant uptime and modern
-specifications named Maize.
+UKO has access to a desktop machine with constant uptime and modern specifications named Maize.
 
-It is highly recommended that all scheduler group members use Maize to avoid
-nuances in different GNU/Linux environments. Maize also includes all of the
-tools required to participate in scheduler development.
+It is highly recommended that all group members use Maize for kernel development to avoid nuances in different GNU/Linux environments.
+Shared use of Maize also lets us ensure that if something we're planning to do requires tools, we all have access to them.
 
 Request a Maize Account
 -----------------------
 
-You must have an existing user account to access Maize. Contact
-`kernel@umn.edu <kernel@umn.edu>`_ with your student x500 to get access to
-your own user account.
+You must have an existing user account to access Maize.
+Contact `kernel@umn.edu <kernel@umn.edu>`_ with your student x500 to get access to your own user account, or use the ``/maize-invite`` command in Discord.
 
 Accessing Maize
 ---------------
 
-Maize may be accessed using the Secure Shell Protocol, or SSH. You can connect
-using::
+Maize may be accessed using the Secure Shell Protocol, or SSH. You can connect using::
 
    ssh [x500]@cs-u-maize.cs.umn.edu
 
-You will be prompted to enter a password. Use the password that was given to
-you during Maize account creation, not your regular UMN password.
+You will be prompted to enter a password.
+This password is not synchronized with your regular UMN password.
+
+If you haven't set a password yet, use the password that was given to you during Maize account creation.
+You should be prompted to change your password on first login.
+All following Maize logins will expect this newly setup password following the change.
 
    NOTE: You must be connected to the University's `eduroam` network to access
    Maize. This requirement may be circumvented using the
    `UMN VPN <https://it.umn.edu/services-technologies/virtual-private-network-vpn>`_
-
-It is recommended that you change your Maize password upon successful login
-using::
-
-   passwd
-
-All following Maize logins will expect this newly setup password following the
-change.
 
 Convenience Suggestions
 -----------------------
