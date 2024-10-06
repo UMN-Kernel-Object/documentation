@@ -62,4 +62,8 @@ After launching the virtual machine, you should be in the same directory, but th
 
     # This command is now running in the virtual machine.
     myx500@virtme-ng:~/linux$ uname -a
-    Linux virtme-ng 6.8.0-rc3-virtme #45 SMP PREEMPT_DYNAMIC Tue Sep 24 20:34:53 CDT 2024 x86_64 x86_64 x86_64 GNU/Linux
+    Linux virtme-ng 6.12.0-rc1-virtme #1 SMP PREEMPT_DYNAMIC Sat Oct  5 19:44:31 CDT 2024 x86_64 x86_64 x86_64 GNU/Linux
+
+You can exit out of the virtual machine by exiting the shell, either with the ``exit`` shell built-in or with the :kbd:`Ctrl+D` keypress [#]_.
+
+.. [#] If there's extra time, discussing why :kbd:`Ctrl+D` causes the shell (and many other programs) to exit is worthwhile, and cuts a neat slice through some parts of Unix and Linux that aren't well-covered by our operating systems courses.
