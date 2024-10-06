@@ -41,6 +41,26 @@ To save network bandwidth, we have a copy of the kernel's Git repo on Maize alre
     # steps.
     myx500@cs-u-maize.cs.umn.edu:~$ cd linux
 
+If, when cloning the repo, you get an error like the following, run the command from the error:
+
+.. code:: sh
+
+    myx500@cs-u-maize.cs.umn.edu:~$ git clone /srv/git/linux
+    Cloning into 'linux'...
+    fatal: detected dubious ownership in repository at '/srv/git/linux/.git'
+    To add an exception for this directory, call:
+
+            git config --global --add safe.directory /srv/git/linux/.git
+    fatal: Could not read from remote repository.
+
+    Please make sure you have the correct access rights
+    and the repository exists.
+
+    myx500@cs-u-maize.cs.umn.edu:~$ git config --global --add safe.directory /srv/git/linux/.git
+
+    # After running the command, re-run git clone.
+    myx500@cs-u-maize.cs.umn.edu:~$ git clone /srv/git/linux
+
 We're using a tool called `virtme-ng <https://github.com/arighi/virtme-ng>`_ to automate the process of building the kernel and starting a VM containing it.
 Each of these two steps is a single command.
 
