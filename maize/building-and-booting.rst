@@ -100,9 +100,49 @@ Switch to the branch with the module on it.
     branch 'hello_module' set up to track 'origin/hello_module'.
     Switched to a new branch 'hello_module'
 
-This branch adds a new module named ``hello_world``.
-Like many kernel modules, this module will only get built if the appropriate option is set in the kernel's build-time configuration.
-The kernel's build-time configuration is stored in a file named ``.config`` [#dotfile]_.
+This branch adds a new module named ``hello_world``. This module's purpose is
+to print the string ``Hello, World!`` when the module is loaded and to print
+the string ``Goodbye, World!`` when the module is removed.
+
+A module is a unit of code that can be dynamically loaded or removed from the
+kernel at runtime, rather than at compile time. This is often useful with
+device drivers, as it allows the kernel to load only the drivers it needs for
+the specific hardware configuration on which it is running, leaving out drivers
+for irrelevant devices. The module in this tutorial can be viewed as a trivial
+device driver.
+
+Most of the relevant code for this tutorial is in the
+``drivers/staging/hello_world`` subdirectory of the kernel tree. Feel free to
+go to this directory and browse its files with the editor of your choice. A few
+items of note are summarized below.
+
+hello_world.c
+~~~~~~~~~~~~~
+
+- The functions ``hello_world_init`` and ``hello_world_exit`` will be called
+  when this kernel module is loaded and removed, respectively.
+- Kernel code doesn't use ``printf`` as you are likely accustomed to from
+  userspace C programs. Instead, it uses the ``printk`` function, which has a
+  generally similar usage.
+- A few macros are used at the bottom of the C file to specify the description,
+  author, and license for the module. These are required for any well-formed
+  module in the kernel codebase.
+
+Makefile
+~~~~~~~~
+
+- The ``SPDX-License-Identifier`` (also included in the C source) specifies the
+  license for this code. It is a useful shorthand that is used in place of
+  reproducing the full text of the license (here, GPL Version 2). Licensing is
+  an important issue in open-source software development that is beyond the
+  scope of this tutorial.
+- The second line of this file integrates our module with the larger kernel
+  configuration system (discussed below).
+
+Like many kernel modules, the ``hello_world`` module will only get built if the
+appropriate option is set in the kernel's build-time configuration. The
+kernel's build-time configuration is stored in a file named ``.config``
+[#dotfile]_.
 
 You can run ``less`` to view the file's contents, which should be a minimal configuration that virtme-ng came up with when you first built the kernel.
 
