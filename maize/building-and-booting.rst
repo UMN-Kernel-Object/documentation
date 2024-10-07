@@ -92,11 +92,11 @@ In this tutorial, we won't cover the process of authoring a new kernel module.
 Instead, we'll use a "Hello, World!" module that's already been written.
 This module is present on a branch in the kernel repo on Maize.
 
-Check out the branch with the module on it.
+Switch to the branch with the module on it.
 
 .. code:: sh
 
-    myx500@cs-u-maize.cs.umn.edu:~/linux$ git checkout hello_module
+    myx500@cs-u-maize.cs.umn.edu:~/linux$ git switch hello_module
     branch 'hello_module' set up to track 'origin/hello_module'.
     Switched to a new branch 'hello_module'
 
