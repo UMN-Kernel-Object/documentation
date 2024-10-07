@@ -7,4 +7,5 @@ Maize information
     :glob:
 
     setup
+    building-and-booting
     vm-kernel-install
