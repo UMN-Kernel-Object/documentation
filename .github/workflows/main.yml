@@ -48,5 +48,5 @@ jobs:
           cd UMN-Kernel-Object.github.io
           rm -rf docs/.buildinfo docs/_sources docs/.doctrees
           git add docs
-          git commit -m "Documentation Update `date`"
+          git commit --allow-empty -m "Documentation Update `date`"
           git push origin main
