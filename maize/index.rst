@@ -8,4 +8,5 @@ Maize information
 
     setup
     building-and-booting
+    caesar
     vm-kernel-install
