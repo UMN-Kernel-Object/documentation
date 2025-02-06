@@ -1,0 +1,118 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\setbeamercovered{transparent}
+\usepackage{amsfonts}
+\usepackage{pifont}
+\usepackage{newpxmath}
+\usepackage{newpxtext}
+
+\date{February 5, 2025}
+
+\begin{document}
+
+\begin{frame}{Linux From Scratch -- Day 1}
+	\small
+	\begin{alertblock}{Important!}
+		\vspace{0.5em}
+		Sign in at \url{https://z.umn.edu/at-lfs}!
+		We need to measure event participation to get funding (pizza).
+		\vspace{0.5em}
+	\end{alertblock}
+	\vspace{0.5em}
+	\begin{block}{Semesterly Goals}
+		\vspace{0.5em}
+		\begin{itemize}
+			\item Go through Linux From Scratch (\url{https://www.linuxfromscratch.org/}), \textit{maybe} some of Beyond Linux From Scratch
+			\item Learn about and discuss (userspace) parts of a Linux system that aren't talked about in classes
+			\item Learn about and discuss what's actually involved in creating and maintaining a Linux distribution
+		\end{itemize}
+		\vspace{0.5em}
+	\end{block}
+\end{frame}
+
+\begin{frame}{Organization}
+	\begin{itemize}
+		\item Meeting every other Wednesday night, location will be in the Discord
+		      \onslide<+->{
+			      \begin{itemize}
+				      \item There's some trouble with room reservations, but it will \textit{probably} continue to be here.
+			      \end{itemize}
+		      }
+		\item New event, so no food yet
+		      \onslide<+->{
+			      \begin{itemize}
+				      \item There \alert{\textbf{will}} be pizza next LFS meeting, since there won't be a speaker next week in the UKO general meeting.
+			      \end{itemize}
+		      }
+		\item There is a Discord channel, \texttt{\#linux-from-scratch}. Give the introduction post a wave (or introduce yourself)!
+		      \onslide<+->{
+			      \begin{itemize}
+				      \item If you run into trouble with the steps, you should post here.
+				      \item There might be a Discord role later, so we can make announcements easier.
+			      \end{itemize}
+		      }
+		\item Homework...
+		      \onslide<+->{
+			      \begin{itemize}
+				      \item LFS is long and there's a lot of waiting for stuff to compile -- I'm considering asking people to do some parts over the course of the week
+				      \item At the end (once we've seen how much is involved in those parts), I'll ask for opinions on this -- if not, we can go at a slower pace and have no homework, but maybe not enough time to do everything
+			      \end{itemize}
+		      }
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\begin{block}{Today's Goals}
+		\begin{itemize}
+			\item Discuss what LFS is and why we care about it
+			\item Make sure everyone has a machine that can work through LFS
+			      \onslide<2->{
+				      \begin{itemize}
+					      \item LFS assumes you have a Linux machine; that should Just Work.
+					      \item I \textit{expect} LFS2 on Windows to work.
+					      \item I \textit{expect} UTM (or another VM) on macOS to work.
+					      \item Make sure it's an x86\_64 environment! Run \texttt{uname -m} to check.
+				      \end{itemize}
+			      }
+			\item Cover chapters 1-4, start chapter 5
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}{Chapter 1: Introduction}
+	(Sorta ``flying over'' this one.)
+
+	\vspace{1em}
+
+	Pull up the book at \url{https://z.umn.edu/uko-lfs} while I'm doing this.
+	We're doing version 12.2-systemd, if you're finding it on your own.
+
+	\vspace{1em}
+
+	\begin{block}{What and Why is Linux From Scratch}
+		\begin{itemize}
+			\item Online book that goes through the process of creating a full, working Linux system without a distro.
+			\item We compile \textit{every} piece of software we use, so we can see all of them.
+			\item We have to configure them and patch them to work together in a few places.
+			      \vspace{1em}
+			\item This gives us a great opportunity to discuss all of them!
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}{Chapter 2: Preparing the Host System}
+	\begin{itemize}
+		\item We don't want to have to make a partition, so we can use a \textit{loop device} instead.
+
+		      \vspace{1em}
+
+		      \texttt{truncate -s 32G lfs.img} \\
+		      \texttt{mkfs -t ext4 lfs.img} \\
+		      \texttt{sudo losetup -{}-partscan -{}-find -{}-show lfs.img} \\
+		      \texttt{mkdir lfs} \\
+		      \texttt{sudo mount /dev/loop0 lfs} \\
+		      \texttt{export LFS="\$(pwd)/lfs"}
+	\end{itemize}
+\end{frame}
+
+\end{document}
