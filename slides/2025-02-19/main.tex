@@ -1,0 +1,74 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+\setbeamercovered{transparent}
+\usepackage{amsfonts}
+\usepackage{pifont}
+\usepackage{newpxmath}
+\usepackage{newpxtext}
+
+\date{February 19, 2025}
+
+\begin{document}
+
+\begin{frame}{Linux From Scratch -- Day 2}
+	\small
+	\begin{alertblock}{Important!}
+		\vspace{0.5em}
+
+		Sign in at \url{https://z.umn.edu/at-lfs}!
+		We need to measure event participation to get funding (so we can keep getting pizza).
+
+		\vspace{0.5em}
+
+		If you're interested in becoming a UKO officer next year, check the checkbox on the form!
+		(If you wanna ask me what all that entails, feel free to ask me!)
+
+		\vspace{0.5em}
+
+		If you haven't \textbf{finished} Chapter 4 yet, talk to me \textit{now}!
+
+		\vspace{0.5em}
+	\end{alertblock}
+\end{frame}
+
+\begin{frame}
+	\begin{block}{Today's Goals}
+		\vspace{0.5em}
+		\begin{itemize}
+			\item Make sure everyone's environment is set up!
+			\item Cover Chapter 5
+			\item Discuss the Unix toolchain and cross-compilation
+			\item See how far we can get through Chapter 6
+			\item Decide if ``finish Chapter 6'' is homework?
+		\end{itemize}
+		\vspace{0.5em}
+	\end{block}
+\end{frame}
+
+\begin{frame}{Environment}
+	\begin{itemize}
+		\item If you rebooted, or for whatever other reason \texttt{lfs.img} got unmounted from \texttt{\$LFS}:
+		      \begin{itemize}
+			      \item \texttt{sudo losetup -{}-partscan -{}-find -{}-show lfs.img}
+			      \item \texttt{sudo mount /dev/loop0 \$LFS}
+		      \end{itemize}
+		      \vspace{0.5em}
+		\item Check that these environment variables are set:
+		      \begin{itemize}
+			      \item \texttt{\$LFS}: Should be the directory you were working in before
+			      \item \texttt{\$LFS\_TGT}: \texttt{x86\_64-lfs-linux-gnu}
+			      \item \texttt{\$MAKEFLAGS}: Something like \texttt{-j16 -l16}
+			      \item \texttt{\$PATH}: The first thing should be \texttt{\$LFS/tools/bin}
+			      \item Consider putting these in \texttt{\textasciitilde/.bashrc}
+		      \end{itemize}
+		      \vspace{0.5em}
+		\item Check that these packages are installed:
+		      \begin{itemize}
+			      \item \texttt{build-essential}, \texttt{bison}
+			      \item \texttt{libgmp-dev}, \texttt{libmpc-dev}, \texttt{libmpfr-dev}
+			      \item \texttt{texinfo}
+		      \end{itemize}
+	\end{itemize}
+\end{frame}
+
+\end{document}
